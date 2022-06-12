@@ -40,13 +40,12 @@ export default function Home(props) {
   // style={{margin:'0'}}
 
   return (
-    <CacheProvider   value={cacheRtl}>
+    <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
-        <div  className="container" dir='rtl'>
-          <Paper elevation={0}>
+        <div className="container" dir='rtl'>
+          <Paper sx={{ borderRadius: '0' }} className='paperCong' elevation={0}>
             <Button variant="contained">Hello World</Button>
             <h2>Amirhossein</h2>
-
             <Switch
               checked={checked}
               onChange={handleChange}
