@@ -13,6 +13,8 @@ import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
+import Test from './../components/header'
+
 
 export default function Home(props) {
   const [checked, setChecked] = useState(true);
@@ -23,38 +25,31 @@ export default function Home(props) {
   };
 
 
-
-  const theme = createTheme({
-    direction: 'rtl',
-    palette: {
-      mode: checked ? 'light' : 'dark',
-    },
-  });
-  // Create rtl cache
-  const cacheRtl = createCache({
-    key: 'muirtl',
-    stylisPlugins: [prefixer, rtlPlugin],
-  });
-
-
-  // style={{margin:'0'}}
-
   return (
-    <CacheProvider value={cacheRtl}>
-      <ThemeProvider theme={theme}>
-        <div className="container" dir='rtl'>
-          <Paper sx={{ borderRadius: '0' }} className='paperCong' elevation={0}>
-            <Button variant="contained">Hello World</Button>
-            <h2>Amirhossein</h2>
-            <Switch
-              checked={checked}
-              onChange={handleChange}
-              inputProps={{ 'aria-label': 'controlled' }}
-            />
-          </Paper>
-        </div>
-      </ThemeProvider>
-    </CacheProvider>
+    // <CacheProvider value={cacheRtl}>
+    //   <ThemeProvider theme={theme}>
+    //     <div className="container" dir='rtl'>
+    //       <Paper sx={{ borderRadius: '0' }} className='paperCong' elevation={0}>
+    //         <Button variant="contained">Hello World</Button>
+    //         <h2>Amirhossein</h2>
+    //         <Switch
+    //           checked={checked}
+    //           onChange={handleChange}
+    //           inputProps={{ 'aria-label': 'controlled' }}
+    //         />
+    //         <Test/>
+    //       </Paper>
+    //     </div>
+    //   </ThemeProvider>
+    // </CacheProvider>
+
+
+    <>
+      <Button variant="contained">Hello World</Button>
+      <h2>Amirhossein</h2>
+      <Test />
+    </>
+
   )
 }
 
@@ -70,7 +65,7 @@ export async function getServerSideProps(context) {
 
   let res = await fetch('http://localhost:3000/api/user');
   let data = await res.json();
-  console.log('data', data);
+  // console.log('data', data);
 
 
   try {

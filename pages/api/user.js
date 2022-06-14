@@ -11,7 +11,6 @@ connectMongo()
 const Test = async (req, res) => {
 
 
-    console.log('req.body', req.body.name)
 
 
     if (req.method == 'GET') {
